@@ -15,8 +15,6 @@ BoughtListController.$inject = ['ShoppingListService'];
 function CheckListController(ShoppingListService) {
   var list = this;
 
-  list.items = {}; // init this from service later
-
   list.isEmpty = function() {
    return list.items.length === 0;
  }
@@ -28,7 +26,9 @@ function CheckListController(ShoppingListService) {
 
 function ToBuyListController(ShoppingListService) {
   CheckListController.call(this, ShoppingListService);
+
   this.items = ShoppingListService.getShoppingList();
+
   this.itemAction = function(index) {
     ShoppingListService.buyItem(index);
   }
@@ -36,7 +36,9 @@ function ToBuyListController(ShoppingListService) {
 
 function BoughtListController(ShoppingListService) {
   CheckListController.call(this, ShoppingListService);
+
   this.items = ShoppingListService.getBoughtList();
+
   this.itemAction = function(index) {
     ShoppingListService.removeItem(index);
   }

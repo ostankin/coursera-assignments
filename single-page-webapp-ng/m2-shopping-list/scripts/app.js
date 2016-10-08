@@ -46,9 +46,11 @@ function ShoppingListService() {
   var service = this;
 
   var shoppingList = [
-    {name: "Beers", quantity: 5},
-    {name: "Ice creams", quantity: 10},
-    {name: "Snickers bars", quantity: 15},
+    {name: "beers", quantity: 5},
+    {name: "ice creams", quantity: 10},
+    {name: "snickers bars", quantity: 15},
+    {name: "meatballs", quantity: 23},
+    {name: "pieces of mind", quantity: 42},
    ];
    var boughtList = [];
 

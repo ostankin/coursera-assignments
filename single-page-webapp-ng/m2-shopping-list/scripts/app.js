@@ -5,10 +5,12 @@ angular.module('ShoppingList', [])
        .controller('BoughtListController', BoughtListController)
        .service('ShoppingListService', ShoppingListService);
 
-ToBuyListController.$inject = ['ShoppingListService'];
+// Check out a great article about inheritance in AngularJS:
+// http://blog.mgechev.com/2013/12/18/inheritance-services-controllers-in-angularjs/
 ToBuyListController.prototype = Object.create(CheckListController.prototype);
-BoughtListController.$inject = ['ShoppingListService'];
+ToBuyListController.$inject = ['ShoppingListService'];
 BoughtListController.prototype = Object.create(CheckListController.prototype);
+BoughtListController.$inject = ['ShoppingListService'];
 
 function CheckListController(ShoppingListService) {
   var list = this;

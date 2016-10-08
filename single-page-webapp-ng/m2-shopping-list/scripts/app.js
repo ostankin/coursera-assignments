@@ -12,15 +12,13 @@ ToBuyListController.$inject = ['ShoppingListService'];
 BoughtListController.prototype = Object.create(CheckListController.prototype);
 BoughtListController.$inject = ['ShoppingListService'];
 
+// This is a parent that shares common functionality of both controllers.
+// Methods items() and tickItem()) are defined in children.
 function CheckListController(ShoppingListService) {
   var list = this;
 
   list.isEmpty = function() {
    return list.items.length === 0;
- }
-
-  list.tickItem = function(index) {
-    list.itemAction(index);
   }
 }
 
@@ -29,7 +27,7 @@ function ToBuyListController(ShoppingListService) {
 
   this.items = ShoppingListService.getShoppingList();
 
-  this.itemAction = function(index) {
+  this.tickItem = function(index) {
     ShoppingListService.buyItem(index);
   }
 }
@@ -39,7 +37,7 @@ function BoughtListController(ShoppingListService) {
 
   this.items = ShoppingListService.getBoughtList();
 
-  this.itemAction = function(index) {
+  this.tickItem = function(index) {
     ShoppingListService.removeItem(index);
   }
 }

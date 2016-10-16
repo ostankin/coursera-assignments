@@ -18,6 +18,7 @@ function NarrowItDownController(MenuSearchService) {
   };
 
   menu.remove = function(index) {
+    console.log(index);
     menu.categories.splice(index, 1);
   }
 }
@@ -27,7 +28,8 @@ function FoundItems() {
     restrict: 'E',
     templateUrl: 'templates/foundItems.html',
     scope: {
-      menu: "<foundItems"
+      ctrl: "<foundItems",
+      doNotWant: "&onRemove"
     }
   };
 }

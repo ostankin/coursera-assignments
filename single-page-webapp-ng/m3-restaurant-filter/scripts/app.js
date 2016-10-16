@@ -18,7 +18,6 @@ function NarrowItDownController(MenuSearchService) {
   };
 
   menu.remove = function(index) {
-    console.log(index);
     menu.categories.splice(index, 1);
   }
 }

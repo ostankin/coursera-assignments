@@ -1,0 +1,11 @@
+<table>
+  <tr data-ng-repeat="category in menu.categories">
+    <td>{{ category.short_name }}</td>
+    <td>{{ category.name }}</td>
+    <td>{{ category.description }}</td>
+    <td><button data-ng-click="menu.remove($index);">
+      Don't want this one!
+    </button></td>
+  </tr>
+</table>
+<span ng-if="menu.categories.length == 0">Nothing found</span>
